@@ -1,0 +1,1 @@
+0 0 */1 * * certbot renew -n >> /var/log/certbot.log
