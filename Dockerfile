@@ -6,5 +6,5 @@ RUN apt-get update && apt-get install certbot python-certbot-nginx cron  -y
 
 COPY cronfile /root/cron/
 RUN crontab /root/cron/cronfile
-
-ENTRYPOINT cron && /docker-entrypoint.sh
+#CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT cron && /docker-entrypoint.sh 'nginx' '-g' 'daemon off;'
