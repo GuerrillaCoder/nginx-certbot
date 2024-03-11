@@ -29,3 +29,4 @@ jobs:
           tags: |
             ghcr.io/guerrillacoder/nginx-certbot:v2
             ghcr.io/guerrillacoder/nginx-certbot:${{ github.sha }}
+          set-visibility: public
