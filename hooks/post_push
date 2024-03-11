@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Starting post_push hook"
+
+SHORTHASH="$(git rev-parse --short HEAD)"
+echo "Short hash: $SHORTHASH"
+
+docker tag $IMAGE_NAME $DOCKER_REPO:$SHORTHASH
+docker push $DOCKER_REPO:$SHORTHASH
+
+echo "Finished post_push hook"
