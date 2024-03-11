@@ -27,5 +27,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/guerrillacoder/nginx-certbot:latest
+            ghcr.io/guerrillacoder/nginx-certbot:v2
             ghcr.io/guerrillacoder/nginx-certbot:${{ github.sha }}
