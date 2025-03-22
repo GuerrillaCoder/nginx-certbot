@@ -1,9 +1,13 @@
-FROM nginx:1.25
+FROM nginx:1.27.4
 VOLUME /etc/letsencrypt
 EXPOSE 80
 EXPOSE 443
 ENV CLOUDFLARE_INI /etc/letsencrypt/cloudflare.ini
 ARG CLOUDFLARE_RESTRICTED_APIKEY
+
+# Change nginx user from 101 to 201
+RUN usermod -u 201 nginx && groupmod -g 201 nginx
+
 RUN apt-get update && apt-get install certbot python3-certbot-dns-cloudflare cron vim supervisor iputils-ping telnet -y
 
 # Create the Cloudflare API token file using the build argument
