@@ -1,1 +1,2 @@
-0 0 */1 * * certbot renew -n >> /var/log/certbot.log
+0 0 */1 * * certbot renew -n >> /var/log/certbot.log 2>&1
+0 0 * * 1 /usr/sbin/nginx -s reload >> /var/log/certbot.log 2>&1
